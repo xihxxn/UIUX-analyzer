@@ -1,0 +1,107 @@
+/* ✨ 기본 레이아웃 */
+body {
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(145deg, #f7f9fc, #eef1f5);
+  color: #333;
+  transition: background 0.5s ease;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-top: 60px;
+  color: #222;
+  letter-spacing: -0.5px;
+}
+
+/* ✨ 도형 컨테이너 */
+.shape-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin-top: 50px;
+  flex-wrap: wrap;
+}
+
+/* ✨ 도형 스타일 */
+.shape-container div {
+  width: 120px;
+  height: 120px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* hover 효과 */
+.shape-container div:hover {
+  transform: scale(1.12);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* 클릭 반짝 애니메이션 */
+@keyframes clickFlash {
+  0% {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+    transform: scale(1.15);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    transform: scale(1);
+  }
+}
+
+.clicked {
+  animation: clickFlash 0.4s ease;
+}
+
+/* ✨ 푸터 느낌 */
+footer {
+  margin-top: 100px;
+  font-size: 14px;
+  color: #777;
+}
+
+/* 🧩 반응형 디자인 시작 */
+
+/* 📱 태블릿 이하 (768px) */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem;
+    margin-top: 40px;
+  }
+
+  .shape-container {
+    gap: 30px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .shape-container div {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+/* 📱 모바일 (480px 이하) */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  .shape-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .shape-container div {
+    width: 80px;
+    height: 80px;
+  }
+}
